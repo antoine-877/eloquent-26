@@ -1,0 +1,28 @@
+name: Tests
+
+on: [push, pull_request]
+
+jobs:
+  katas:
+    name: ${{ matrix.groupe }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        groupe: [chapitre10, chapitre11, chapitre12]
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          extensions: pdo_sqlite
+          coverage: none
+
+      - run: composer install --no-interaction --prefer-dist --no-progress
+
+      - run: cp .env.example .env
+
+      - run: php artisan key:generate
+
+      - run: php artisan test --group=${{ matrix.groupe }}
