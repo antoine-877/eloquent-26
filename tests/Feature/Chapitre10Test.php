@@ -61,7 +61,7 @@ test('un film créé avec Movie::create() se relit avec ses valeurs', function (
 
     expect($found->title)->toBe('Terminus Nord');
     expect($found->duration)->toBe(112);
-    expect($found->released_on)->toStartWith('2024-02-14');
+    expect((string) $found->released_on)->toStartWith('2024-02-14');
 })->group('chapitre10');
 
 test('sans synopsis, Movie::create() laisse synopsis à null', function (): void {
