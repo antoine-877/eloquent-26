@@ -35,7 +35,6 @@ class MovieSeeder extends Seeder
             'title' => 'Les Jours sans',
             'duration' => 87,
             'released_on' => '2011-03-09',
-            'synopsis' => '',
         ]);
         Movie::create([
             'title' => 'Sous le pont',
