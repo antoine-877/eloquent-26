@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedSmallInteger('duration');
             $table->date('released_on');
             $table->text("synopsis")->nullable();
+            $table->timestamps();
         });
     }
 
