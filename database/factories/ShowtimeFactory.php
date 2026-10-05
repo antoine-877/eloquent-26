@@ -19,8 +19,9 @@ class ShowtimeFactory extends Factory
     public function definition(): array
     {
         return [
-            'movie_id'=> Movie::factory(),
-            'price' => fake()->numberBetween(6,12),
+            'movie_id' => Movie::factory(),
+            'starts_at' => fake()->dateTimeBetween('now', '+30 days'),
+            'price' => fake()->numberBetween(6, 12),
 
         ];
     }

@@ -26,8 +26,10 @@ class MovieController extends Controller
     {
         $movie = Movie::findOrFail($id);
 
-        return view('movies.show', [
-            'movie' => $movie
-        ]);
+        $showtimes = $movie->showtimes()
+            ->orderBy('starts_at')
+            ->get();
+
+        return view('movies.show', compact('movie', 'showtimes'));
     }
 }
