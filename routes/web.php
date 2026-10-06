@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\GenreController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ShowtimeController;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', [MovieController::class, 'index'])
+    ->name('home');
 
 Route::get('/films', [MovieController::class, 'index'])
     ->name('movies.index');
