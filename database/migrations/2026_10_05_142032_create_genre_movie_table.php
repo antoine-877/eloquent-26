@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('genre_movie', function (Blueprint $table) {
             $table->foreignId('movie_id')->constrained()->cascadeOnDelete();
             $table->foreignId('genre_id')->constrained();
-            
+            $table->unique(['genre_id', 'movie_id']);
         });
     }
 
