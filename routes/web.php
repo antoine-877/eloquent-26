@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GenreController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ShowtimeController;
@@ -13,3 +14,7 @@ Route::get('/films/{id}', [MovieController::class, 'show'])
 
 Route::get('/seances', [ShowtimeController::class, 'index'])
     ->name('showtimes.index');
+
+Route::get('/genres/{id}', [GenreController::class, 'show'])
+    ->name('genres.show')
+    ->whereNumber('id');

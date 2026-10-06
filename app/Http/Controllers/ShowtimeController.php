@@ -8,7 +8,7 @@ class ShowtimeController extends Controller
 {
     public function index()
     {
-        $showtimes = Showtime::with('movie')
+        $showtimes = Showtime::with(['movie', 'room'])
             ->orderBy('starts_at')
             ->get();
 

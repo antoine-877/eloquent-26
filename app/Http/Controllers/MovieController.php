@@ -14,6 +14,7 @@ class MovieController extends Controller
             ->when($annee, function ($query) use ($annee) {
                 $query->whereYear('released_on', $annee);
             })
+            ->with('genres')
             ->orderBy('title')
             ->get();
 

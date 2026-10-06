@@ -9,6 +9,7 @@
                 <h2>{{ $showtime->movie->title }}</h2>
                 <p>{{ $showtime->starts_at }}</p>
                 <p>{{ $showtime->price }} €</p>
+                <p>{{ $showtime->room?->name }}</p>
             </div>
         @endforeach
     @endif
